@@ -30,3 +30,9 @@ A set of my setting files.
 ## Git
 
 - ```.gitconfig``` 
+
+
+
+## Windows Terminal
+
+- ```settings.json``` 
