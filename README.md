@@ -21,6 +21,12 @@ A set of my setting files.
 
 ### C++
 
-- task.json
-- launch.json
-- c_cpp_properties.json
+- ```task.json``` 
+- ```launch.json``` 
+- ```c_cpp_properties.json``` 
+
+
+
+## Git
+
+- ```.gitconfig``` 
