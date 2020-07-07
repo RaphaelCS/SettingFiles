@@ -80,6 +80,7 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
+    autojump
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -111,13 +112,15 @@ export https_proxy=socks5://127.0.0.1:10808
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+# Set ZSH tab-completion color as LS_COLORS
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 
 #alias
@@ -132,8 +135,10 @@ alias l='ls -CF'
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # zsh-autosuggest-highlight
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=12,bold"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=12,bold,underline"
 bindkey ',' autosuggest-accept
+# autojump
+. /usr/share/autojump/autojump.sh
 
 
 # Themes
