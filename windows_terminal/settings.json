@@ -37,7 +37,7 @@
             "cursorShape": "bar",
             "cursorColor": "#32FF00",
 
-            "fontFace": "Cascadia Mono",
+            "fontFace": "MesloLGS NF",
             "fontSize": 12,
             "padding": "8, 8, 8, 8",
             "antialiasingMode": "grayscale",
