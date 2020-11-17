@@ -140,7 +140,21 @@ alias l='ls -CF'
 # Proxy
 # export http_proxy=socks5://127.0.0.1:10808
 # export https_proxy=socks5://127.0.0.1:10808
-# export ALL_PROXY="http://127.0.0.1:10808"
+# export http_proxy=http://host.docker.internal:10808
+hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+wslip=$(hostname -I | awk '{print $1}')
+port=10808
+
+PROXY_HTTP="socks5://${hostip}:${port}"
+
+export http_proxy="${PROXY_HTTP}"
+export HTTP_PROXY="${PROXY_HTTP}"
+
+export https_proxy="${PROXY_HTTP}"
+export HTTPS_proxy="${PROXY_HTTP}"
+
+export ALL_PROXY="${PROXY_SOCKS5}"
+export all_proxy=${PROXY_SOCKS5}
 
 
 # ------------------------------------
