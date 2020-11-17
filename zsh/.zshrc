@@ -15,7 +15,6 @@ export ZSH="/home/raphael/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -41,7 +40,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -85,7 +84,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+
+# ------------------------------------
+#   User configuration
+# ------------------------------------
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -102,10 +104,14 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-
-# Proxy
-export http_proxy=socks5://127.0.0.1:10808
-export https_proxy=socks5://127.0.0.1:10808
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
 # enable color support of ls and also add handy aliases
@@ -123,7 +129,7 @@ fi
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 
-#alias
+# alias
 alias cdd="cd /mnt/d"  # go to drive D: on Windows
 
 alias ll='ls -alF'
@@ -131,34 +137,30 @@ alias la='ls -A'
 alias l='ls -CF'
 
 
-# Plugins
+# Proxy
+# export http_proxy=socks5://127.0.0.1:10808
+# export https_proxy=socks5://127.0.0.1:10808
+# export ALL_PROXY="http://127.0.0.1:10808"
+
+
+# ------------------------------------
+#   Plugins
+# ------------------------------------
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # zsh-autosuggest-highlight
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=12,bold,underline"
 bindkey '>' autosuggest-accept
+
 # autojump
 . /usr/share/autojump/autojump.sh
 
 
-# Themes
+# ------------------------------------
+#   Theme
+# ------------------------------------
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/raphael/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/raphael/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/raphael/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/raphael/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export PATH=/home/raphael/miniconda3/bin/conda:$PATH
